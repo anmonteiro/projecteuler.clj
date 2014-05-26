@@ -17,3 +17,5 @@
 						:while (<= fibx limit)
 						:when (even? fibx)] fibx))]
 		(reduce + lstFib)))
+
+(problem2 4000000)

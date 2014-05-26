@@ -8,3 +8,5 @@
   	(if (or (= (mod (- x 1) 3) 0) (= (mod (- x 1) 5) 0))
   		(+ (- x 1) (problem1 (- x 1)))
   		(+ 0 (problem1 (- x 1))))))
+
+(problem1 1000)
