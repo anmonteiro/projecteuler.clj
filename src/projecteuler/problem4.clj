@@ -8,26 +8,28 @@
 
 
 (defn is-palindrome?
-	[vect]
-	(if (empty? vect)
+	[lst]
+	(if (empty? lst)
 		true
-		(if (= (first vect) (last vect))
-			(is-palindrome? (vec (rest (pop vect))))
+		(if (= (first lst) (last lst))
+			(is-palindrome? (rest (pop (vec lst))))
 			false)))
 
 
 (defn seq-prob4
-	[x]
-	())
+	[n]
+	(let [limit (int (Math/pow 10 n))]
+		(loop [i 1 vc []]
+			(if (= i limit)
+				vc
+				(recur
+					(inc i)
+					(into vc (map * (take (- limit i) (cycle [i])) (range i limit))))))))
 
 
 (defn problem4
 	"Take two x-digit numbers and the highest
 	palindrome result of their product"
 	[x]
-	(max (filter is-palindrome? (seq-prob4 x))))
+	(apply max (map #(Integer/parseInt %) (map clojure.string/join (filter is-palindrome? (map num-to-lst (seq-prob4 x)))))))
 
-
-; go through an array of numbers from 1 to 10*n-1,
-; multiply each number by an array of digits from i to 10*n-1
-; return the highest palindrome (filter)
