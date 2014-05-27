@@ -31,5 +31,9 @@
 	"Take two x-digit numbers and the highest
 	palindrome result of their product"
 	[x]
-	(apply max (map #(Integer/parseInt %) (map clojure.string/join (filter is-palindrome? (map num-to-lst (seq-prob4 x)))))))
+	(apply max (map #(Integer/parseInt %)
+					(map clojure.string/join
+						(filter is-palindrome? (map num-to-lst
+													(seq-prob4 x)))))))
 
+(problem4 3)
