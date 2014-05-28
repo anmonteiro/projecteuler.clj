@@ -28,7 +28,7 @@
 
 
 (defn problem4
-	"Take two x-digit numbers and the highest
+	"Take two x-digit numbers and return the highest
 	palindrome result of their product"
 	[x]
 	(apply max (map #(Integer/parseInt %)
