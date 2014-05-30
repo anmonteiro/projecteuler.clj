@@ -10,7 +10,9 @@
 
 (deftest sum-squares-test
 	(testing "Sum of squares"
-		(is (= (square-sums 10) 385))))
+		(is (= (sum-squares 10) 385))
+		(is (= (sum-squares 2) 5))
+		(is (= (sum-squares 4) 30))))
 
 
 (deftest problem6-test-1

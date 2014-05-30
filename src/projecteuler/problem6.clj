@@ -2,12 +2,14 @@
 
 (defn square-sums
 	[n]
-	(/ (* n (inc n)) 2))
+	(let [n (/ (* n (inc n)) 2)]
+		(* n n)))
 
 
 (defn sum-squares
+	"n (n - 1) (2n - 1) / 6"
 	[n]
-	0)
+	(/ (* n (inc n) (+ (* n 2) 1)) 6))
 
 
 (defn problem6
