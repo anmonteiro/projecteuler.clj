@@ -25,9 +25,9 @@
 
 (deftest problem4-test-1
   (testing "Problem 4 - Argument is the number of digits
-            from which sum to find the largest palindrome"
-    (is (= (problem4 2) 9009))
-    (is (= (problem4 1) 9))))
+           from which sum to find the largest palindrome"
+           (is (= (problem4 2) 9009))
+           (is (= (problem4 1) 9))))
 
 
 
