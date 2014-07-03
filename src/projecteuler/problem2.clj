@@ -3,19 +3,17 @@
 (defn fib
   ""
   [x]
-  (if (= x 0)
-    1
-    (if (= x 1)
-      1
-      (+ (fib (- x 1)) (fib (- x 2))))))
+  (case x
+    0 1
+    1 1
+    (+ (fib (dec x)) (fib (dec (dec x))))))
 
 (defn problem2
   ""
   [limit]
-  (let [lstFib (vec(for [x (range)
-                         :let [fibx (fib x)]
-                         :while (<= fibx limit)
-                         :when (even? fibx)] fibx))]
-    (reduce + lstFib)))
+  (loop [x 0 fibx (fib x) lst-fib '()]
+    (if (> fibx limit)
+      (reduce + (filter even? lst-fib))
+      (recur (inc x) (fib x) (conj lst-fib fibx)))))
 
 (problem2 4000000)
