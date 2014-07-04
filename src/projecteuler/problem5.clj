@@ -3,7 +3,7 @@
 (defn is-divisible-until-n?
   [n number]
   (or (= n 1)
-      (and (= (mod number n) 0) (is-divisible-until-n? (dec n) number))))
+      (and (zero? (mod number n)) (is-divisible-until-n? (dec n) number))))
 
 
 (defn loop-until-divisible

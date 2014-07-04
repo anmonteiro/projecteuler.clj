@@ -1,5 +1,5 @@
 (ns projecteuler.problem3
-  (:require [clojure.set]))
+  (:require [clojure.set :refer [union]]))
 
 (defn prime-factors
   "Find all prime factors of x"
@@ -7,13 +7,14 @@
   (if (<= x 1)
     #{}
     (loop [div 2]
-      (if (= (mod x div) 0)
-        (clojure.set/union #{div} (prime-factors (/ x div)))
-        (recur (+ div 1))))))
+      (if (zero? (mod x div))
+        (into #{div} (prime-factors (/ x div)))
+        (recur (inc div))))))
 
 (defn problem3
   "Problem 3 solution"
   [x]
-  (last (apply sorted-set (prime-factors x))))
+  (apply max (prime-factors x)))
 
-(problem3 600851475143)
+;;; This finds the intended solution
+;; (problem3 600851475143)

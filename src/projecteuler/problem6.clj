@@ -9,7 +9,7 @@
 (defn sum-squares
   "n (n - 1) (2n - 1) / 6"
   [n]
-  (/ (* n (inc n) (+ (* n 2) 1)) 6))
+  (/ (* n (inc n) (inc (* n 2))) 6))
 
 
 (defn problem6

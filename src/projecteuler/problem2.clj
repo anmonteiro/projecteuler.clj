@@ -16,4 +16,6 @@
       (reduce + (filter even? lst-fib))
       (recur (inc x) (fib x) (conj lst-fib fibx)))))
 
-(problem2 4000000)
+
+;;; This finds the intended solution
+;; (problem2 4000000)

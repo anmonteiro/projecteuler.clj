@@ -10,4 +10,5 @@
       (or (zero? (mod n 3)) (zero? (mod n 5))) (+ n (problem1 n))
       :else (+ 0 (problem1 n)))))
 
-(problem1 1000)
+;;; This finds the intended solution
+;; (problem1 1000)
