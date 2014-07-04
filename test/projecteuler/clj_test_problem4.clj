@@ -2,21 +2,15 @@
   (:require [clojure.test :refer :all]
             [projecteuler.problem4 :refer :all]))
 
-(deftest num-to-lst-test
-  (testing "Number like 9001 should be returned as [9 0 0 1]"
-    (is (= (num-to-lst 9001) [9 0 0 1]))
-    (is (= (num-to-lst 123456) [1 2 3 4 5 6]))
-    (is (= (num-to-lst 180081) [1 8 0 0 8 1]))))
-
 
 (deftest is-palindrome?-test
   (testing "Funtion is-palindrome"
-    (is (= (is-palindrome? (num-to-lst 9009)) true))
-    (is (= (is-palindrome? [9 0 0]) false))
-    (is (= (is-palindrome? [1 0 0 1]) true))
-    (is (= (is-palindrome? [1 8 0 0 8 1]) true))
-    (is (= (is-palindrome? [8]) true))
-    (is (= (is-palindrome? [1 8 2 8 1]) true))))
+    (is (= (is-palindrome? 9009) true))
+    (is (= (is-palindrome? 900) false))
+    (is (= (is-palindrome? 1001) true))
+    (is (= (is-palindrome? 180081) true))
+    (is (= (is-palindrome? 8) true))
+    (is (= (is-palindrome? 18281) true))))
 
 
 (deftest seq-prob4-test

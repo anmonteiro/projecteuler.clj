@@ -1,20 +1,9 @@
 (ns projecteuler.problem4)
 
-(defn num-to-lst
-  [n]
-  (if (< n 10)
-    [n]
-    (conj (num-to-lst (long (/ n 10))) (mod n 10))))
-
 
 (defn is-palindrome?
-  [lst]
-  (if (empty? lst)
-    true
-    (if (= (first lst) (last lst))
-      (is-palindrome? (rest (pop (vec lst))))
-      false)))
-
+  [n]
+  (= (str n) (apply str (reverse (str n)))))
 
 (defn seq-prob4
   [n]
@@ -31,10 +20,8 @@
   "Take two x-digit numbers and return the highest
   palindrome result of their product"
   [x]
-  (->> (map (comp read-string clojure.string/join)
-            (->> (map num-to-lst (seq-prob4 x))
-                (filter is-palindrome?)))
-       (apply max)))
+  (apply max (->> (seq-prob4 x)
+                  (filter is-palindrome?))))
 
 
 ;;; This finds the intended solution
