@@ -5,10 +5,9 @@
   [x]
   {:pre [(>= x 0)]}
   (let [n (dec x)]
-    (if (zero? x)
-      x
-      (if (or (zero? (mod n 3)) (zero? (mod n 5)))
-        (+ n (problem1 n))
-        (+ 0 (problem1 n))))))
+    (cond
+      (zero? x) x
+      (or (zero? (mod n 3)) (zero? (mod n 5))) (+ n (problem1 n))
+      :else (+ 0 (problem1 n)))))
 
 (problem1 1000)
